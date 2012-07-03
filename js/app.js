@@ -1,4 +1,32 @@
+$(function(){
 
-$("#home").bind("pagebeforecreate", function(e) {
-	$("#greeting").html("<b>Hello</b>");
-})
+	// define app
+	var iSayHi = {};
+
+	(function(app){
+
+		// declare variables here
+
+		app.init = function() {
+			console.log('app.init');
+			app.bindings();
+			app.sayHello();
+		}
+
+		app.bindings = function(){
+			console.log('app.bindings');
+
+			$('body').bind('tap',function(e) {
+				console.log('tap');
+			});
+		}
+
+		app.sayHello = function(){
+			$('#homepage').html('hello');	
+		};
+
+		app.init();
+
+	})(iSayHi);
+});
+
